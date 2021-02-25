@@ -7,4 +7,4 @@ integrations:
       apis:
         - name: clockDriftNTP
           commands:
-            - run: echo -e "{\"timesyncserver\":\"$(ntpq -np | grep "\*"  | awk '{print $1}' | tr -d '\*' | tr -d '\+')\",\"timeoffset\":$(ntpq -np | grep "\*" | cut -c 62-66 | tr -d '-' | awk '{$1=$1};1')}"
+            - run: echo -e "{\"timesyncserver\":\"$(ntpq -np | grep "\*"  | awk '{print $1}' | tr -d '\*' | tr -d '\+')\",\"timeoffset\":$(ntpq -np | grep "\*" | awk '{print $9}' | tr -d '-' | awk '{$1=$1};1')}"
